@@ -1,0 +1,5 @@
+ERROR:kiteconnect.ticker:Connection error: 1006 - connection was closed uncleanly (peer dropped the TCP connection without previous WebSocket closing handshake)
+ERROR:kiteconnect.ticker:Connection closed: 1006 - connection was closed uncleanly (peer dropped the TCP connection without previous WebSocket closing handshake)
+MXHcqgE7So1QSATND425FB1PXDi6Ql6Q
+start
+connection was closed uncleanly (peer dropped the TCP connection without previous WebSocket closing handshake)

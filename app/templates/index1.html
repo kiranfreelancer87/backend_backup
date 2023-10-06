@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+	<script>
+	   function WebSocketTest() {
+      
+            if ("WebSocket" in window) {
+               //alert("WebSocket is supported by your Browser!");
+               
+               // Let us open a web socket
+               var ws = new WebSocket("wss://5107-49-205-112-194.in.ngrok.io/echo");
+				
+               ws.onopen = function() {
+                  
+                  // Web Socket is connected, send data using send()
+                  ws.send("Message to send");
+                  //alert("Message is sent...");
+               };
+				
+               ws.onmessage = function (evt) { 
+                  var received_msg = evt.data;
+                  //alert("Message is received...");
+				  //addCode(evt)
+				  console.log(received_msg);
+               };
+				
+               ws.onclose = function() { 
+                  
+                  // websocket is closed.
+                  alert("Connection is closed..."); 
+               };
+            } else {
+              
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }
+	  function addCode(evt) {
+            document.getElementById("tb").innerHTML += 
+			
+              `<td>VEDL</td>
+						     <td bgcolor="lightgreen">CROSS UP 2ST HIGHEST CALL OI 1200</td>
+						     <td>2290</td>
+							 <td bgcolor= "lightgreen"> 2.5%</td>
+						      <td>9:23</td>
+						      <td><a href="#" class=\"btn btn-success\">Click here</a></td>
+						    </tr>`
+        }
+	</script>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">ALERTS</h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+					<div class="table-responsive card shadow p-3 mb-5 bg-black rounded">
+						<table class="table table-striped table-bordered">
+						  <thead>
+						    <tr>
+						      <th><b>Stock name</b></th>
+						      <th><b>Details</b></th>
+						      <th><b>CMP</b></th>
+						      <th><b>Price Change</b></th>
+						      <th><b>Alert time</b></th>
+						      <th><b>Data</b></th>
+						    </tr>
+						  </thead>
+						  <tbody id = "tb">
+						    <tr>
+						      <td>TASTEEL</td>
+						      <td bgcolor= "red">CROSS UP 1ST HIGHEST CALL OI 2300</td>
+						      <td>2290</td>
+							  <td bgcolor= "green"> 2.5%</td>
+						      <td>9:23</td>
+						      <td><a href="#" class="btn btn-success">Click here</a></td>
+						    </tr>
+							<tr>
+							
+							
+						     
+
+						    
+
+						   
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div>
+		</div>
+		 <button onclick="addCode()">Add Stuff</button>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/main.js"></script>
+		<script>
+	window.onload = WebSocketTest;
+	</script>
+	</body>
+</html>
+

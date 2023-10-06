@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  	<title>Table 09</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	
+	<script>
+	   function WebSocketTest() {
+      
+            if ("WebSocket" in window) {
+               //alert("WebSocket is supported by your Browser!");
+               
+               // Let us open a web socket
+               var ws = new WebSocket("ws://remote-vpn.com/echo");
+				
+               ws.onopen = function() {
+                  
+                  // Web Socket is connected, send data using send()
+                  ws.send("Message to send");
+				  document.getElementById("status").innerHTML = ""
+				  document.getElementById("status").innerHTML = "STATUS: CONNECTED"
+                  //alert("Message is sent...");
+               };
+				
+               ws.onmessage = function (evt) { 
+                  var received_msg = evt.data;
+                  //alert("Message is received...");
+				  addCode(received_msg)
+				  console.log(received_msg);
+               };
+				
+               ws.onclose = function() { 
+                  
+                  // websocket is closed.
+                  //alert("Connection is closed..."); 
+				  document.getElementById("status").innerHTML = ""
+				  document.getElementById("status").innerHTML = "STATUS: Disconnected"
+				  WebSocketTest();
+               };
+            } else {
+              
+               // The browser doesn't support WebSocket
+               alert("WebSocket NOT supported by your Browser!");
+            }
+         }
+	  function addCode(evt) {
+            document.getElementById("tb").innerHTML += 
+			
+              `<tr><td>`+evt+`</td></tr>`
+			 
+			  
+						    
+        }
+	</script>
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section" id = "status"></h2>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="table-wrap">
+					<div class="table-responsive card shadow p-3 mb-5 bg-black rounded">
+						<table class="table table-striped table-bordered">
+						  <thead>
+						    <tr>
+						      <th><b>New alerts</b></th>
+						      
+						    </tr>
+						  </thead>
+						  <tbody id = "tb">
+						   
+							
+							
+						     
+
+						    
+
+						   
+						  </tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			<div>
+		</div>
+		 
+	</section>
+
+	
+		<script>
+	window.onload = WebSocketTest;
+	</script>
+	</body>
+</html>
+
